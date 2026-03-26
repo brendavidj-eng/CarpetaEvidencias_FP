@@ -10,6 +10,7 @@ Completa:
 
 int main() {
     int a, b, op;
+    printf("Ingresa 2 números: \n");
     scanf("%d %d", &a, &b);
 
     printf("1.Suma 2.Resta 3.Multiplicacion 4.Division\n");
