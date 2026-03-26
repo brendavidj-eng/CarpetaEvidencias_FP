@@ -17,6 +17,6 @@ int main() {
     } else {
         printf("Negativo o cero\n");
     }
-
+    
     return 0;
 }
