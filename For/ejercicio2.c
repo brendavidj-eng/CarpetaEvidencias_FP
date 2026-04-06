@@ -3,7 +3,6 @@
 int main() {
     int n;
 
-    // Pedimos el número al usuario
     printf("Ingresa un número: ");
     if (scanf("%d", &n) != 1) {
         printf("Error: Ingresa un número entero válido.\n");
