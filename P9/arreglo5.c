@@ -12,8 +12,8 @@ int main (){
     apuntador = &array[7]; //Apuntador almacenala dirección de memoria del primer elemento del array
     // apuntador = &array[0];
 
-    for (int i=-7; i<8; i++){
-        printf ("Ingresa el valor del elemento %d: ", i+7);
+    for (int i=-4; i<8; i++){
+        printf ("Ingresa el valor del elemento %d: ", i+2);
         //scanf("%d", &array[i]);
         scanf ("%d", (apuntador+i));
     }
