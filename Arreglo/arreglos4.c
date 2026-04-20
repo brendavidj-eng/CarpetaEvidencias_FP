@@ -17,15 +17,15 @@ void leer(int mat[][TAM], int m, int n){
 }
 
 void escribir(int mat[][TAM], int m, int n){
-    for(int i=0; i<m; i++){         //Sirve para cambiar de renglón
-        for(int j=0; j<n; ++j){     // Cambia las columnas de un renglón
-            printf ("Ingresa el valor para matriz [%d, %d]: ", i, j);
-            scanf ("%d", &mat[i][j]);
+    for(int i=0; i<m; i++){
+        printf("[ ");
+        for(int j=0; j<n; ++j){
+            printf("%d ", mat[i][j]);
         }
+        printf("]\n");
     }
 }
-
-
+    
 int main(){
     //Tipo - identificador - [n1][n2]...[nk]
     // int cubo [3][3][3];
@@ -43,14 +43,6 @@ int main(){
 
     printf("La dirección de la Matriz es: %p\n", matriz);
     printf("La dirección del primer elemento de la Matriz es: %p\n", &matriz[0][0]);
-
-    //for(int i=0; i<m; i++){
-        printf("[ ");
-        for(int j=0; j<n; ++j){
-            printf("%d, ", matriz[i][j]);
-        }
-        printf("]\n");
-    //}
 
     leer(matriz, m, n);
     escribir(matriz, m, n);
