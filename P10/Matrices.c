@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #define MAX 100
 
 
@@ -40,52 +41,78 @@ void multiplicar_matriz(int A[][MAX], int B[][MAX], int C[][MAX], int fA, int cA
     }
 }
 
-void transpuesta_matriz(int A[][MAX], int T[][MAX]){}
+void transpuesta_matriz(int A[][MAX], int T[][MAX], int ,int){
+
+}
 
 // Proceso Principal
 
-float A, B, C;
-int fA, cA, fB, cB, opcion;
-
-int main()
-{
-
-    printf("Ingrese filas y columnas de la matriz A: \n");
-    scanf("%d %d", fA, cA);
-    int A[fA][cA];
-    scanf("%d, %d", fA, cA);
-
-    void menu()
+void menu()
     {
         printf("1. Suma \n");
-        printf("2. Resta \n");
-        printf("3. Multiplicación \n");
-        printf("4. Transpuesta \n");
-        printf("5. Determinante \n");
+        printf("2. Multiplicación \n");
+        printf("3. Transpuesta \n");
+        printf("4. Determinante \n");
+        printf("5. Salir \n");
     }
-
-int main (){
+    
+    int main (){
     float A, B, C;
     int opcion, fA, cA, fB, cB;
+
+    printf("Ingrese filas y columnas de la matriz A: \n");
+    scanf("%d %d", &fA, &cA);
 
     while (true){
         menu (); //Llamando al menú
         printf ("Selecciona una opción: \n");
-        scanf ("%d", &op);
-        if (op==6) return 0;
+        scanf ("%d", &opcion);
+        if (opcion==5) return 0;
 
         printf ("Ingrese el primer valor: ");
-        scanf ("%f", &x);
+        scanf ("%f", &A);
         printf ("Ingrese el segundo valor: ");
-        scanf ("%f", &y);
+        scanf ("%f", &B);
 
     switch (opcion){
         case 1:
-        z=suma(x,y)
+        C=suma(A,B);
+        printf("%f + %f = %f \n", A, B, C);
+        break;
+
+        case 2:
+        C=multiplicacion (A,B);
+        printf ("%f * %f = %f\n", A, B, C);
+        break;
+
+        case 3:
+        C=transpuesta (A,B);
+
+        break;
+
+        case 4:
+        C=determinante (A,B);
+
+        break;
+
+
+        default:
+        printf ("Opción no válida\n");
     }
+
+    printf ("Presiona Enter para continuar...");
+    while (getchar()!= '\n');
+    getchar ();
+    system ("clear");
+
 }
 
-// Dimension A[fA, cA] LeerMatriz(A, fA, cA)
+// subprocesos
+
+
+//determinante
+)
+
 
 
     Escribir "Seleccione operación:" Escribir "1. Suma" Escribir "2. Multiplicación" Escribir "3. Transpuesta" Escribir "4. Determinante" Leer opcion
