@@ -1,3 +1,5 @@
+// Clase 24_04_26
+
 #include <stdio.h>
 #define TAM 100
 
@@ -18,7 +20,7 @@ void print_array(float array[][TAM], int nr, int nc){
 }
 
 int main (){
-    float matriz[][TAM] = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f}
+    float matriz[][TAM] = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
     int matInt[][TAM]={1, 0, 0, 1, 0, 0, 0, 1};
     float *ptr;
     //ptr=matriz;
