@@ -53,7 +53,7 @@ void clearScreen(){
 #endif
 }
 
-//FUnciòn que sirve para no presionar Enter al moverse en Windows
+//Función que sirve para no presionar Enter al moverse en Windows
 #ifdef _WIN32
 char readInput(){
     if(_kbhit()) return _getc();
@@ -68,17 +68,19 @@ char readInput(){
 
     tcgetattr(STDIN_FILENO, &oldt);
     newt = oldt;
-    newt.c_lflag &= ~(ICANON || ECHO);
+    newt.c_lflag &= ~(ICANON | ECHO);
 
-    tcsetattr(STDERR_FILENO, TCSANOW, &newt);
-    oldf = fcntl(STDERR_FILENO, F_GETFL, 0);
-    fcntl(STDIN_FILENO, F_GETFL, oldf | O_NONBLOCK);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+    oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
+    fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
 
     ch = getchar();
     tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-    fcntl(STDIN_FILENO, F_GETFL, oldf);
+    fcntl(STDIN_FILENO, F_SETFL, oldf);
 
-    if(ch!=EOF) return ch;
+    if(ch!=EOF){
+
+    } return (char) ch;
 
     return direction;
 }
@@ -96,7 +98,8 @@ void setup(){
 }
 
 void draw(){
-    system("clear");
+    clearScreen();
+    //system("clear");
     for(int i=0; i< HEIGHT;i++){
         for(int j=0; j< WIDTH; j++){
             if(j==0 || i ==0 || i==HEIGHT-1 || j == WIDTH-1){
@@ -122,8 +125,8 @@ void draw(){
 // Código para que se mueva la serpiente
 void logic(){
     // Función para que choque con las paredes
-    if(snakeX<0 || snakeX>=WIDTH || snakeY<=0 || snakeY>=HEIGHT){
-        printf("Game Over \n");
+    if(snakeX<=0 || snakeX>=WIDTH || snakeY<=0 || snakeY>=HEIGHT){
+        printf(RED"Game Over \n" RESET);
         exit(0);
     }
     // Función para que se coma las frutas
